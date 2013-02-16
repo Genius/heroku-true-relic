@@ -5,6 +5,10 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'rubygems'
 require 'pry'
+require 'pry-rails'
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'timecop'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

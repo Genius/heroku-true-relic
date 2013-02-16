@@ -1,4 +1,7 @@
 Dummy::Application.routes.draw do
+  root :to => 'dummy#index'
+  match 'env/:var', :to => 'env#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
