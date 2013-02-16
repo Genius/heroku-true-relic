@@ -7,11 +7,15 @@ require "heroku-true-relic/version"
 Gem::Specification.new do |s|
   s.name        = "heroku-true-relic"
   s.version     = HerokuTrueRelic::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of HerokuTrueRelic."
-  s.description = "TODO: Description of HerokuTrueRelic."
+  s.authors     = ["Andrew Warner"]
+  s.email       = ["andrew@rapgenius.com"]
+  s.homepage    = "rapgenius.com"
+  s.summary     = "Get accurate heroku queue times in new relic"
+  s.description = <<-DESCRIPTION
+  New Relic (on Heroku) currently reports queue times as queuing at the router level. The goal
+  of this gem is to provide new relic with the proper queueing time for requests, which takes
+  into account queue time at the dyno level.
+  DESCRIPTION
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
