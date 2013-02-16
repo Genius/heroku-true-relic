@@ -1,0 +1,14 @@
+source :rubygems
+
+gem "rails", "~> 3.2.12"
+gem "sqlite3"
+gem 'heroku-true-relic', :path => '../..'
+
+group :test, :development do
+  gem "rspec"
+  gem "rspec-rails"
+  gem "pry"
+  gem "pry-rails"
+  gem "capybara"
+  gem "timecop"
+end

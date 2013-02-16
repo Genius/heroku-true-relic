@@ -7,3 +7,5 @@ test/dummy/tmp/
 test/dummy/.sass-cache
 spec/dummy/log
 spec/dummy/db/*.sqlite3
+spec/*/app_root/db/*.sqlite3
+spec/*/app_root/log/*

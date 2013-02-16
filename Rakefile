@@ -20,9 +20,6 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-
-
-
 Bundler::GemHelper.install_tasks
 
 require 'rake/testtask'
@@ -34,5 +31,29 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = false
 end
 
+desc 'Default: Run all specs.'
+task :default => 'all:spec'
 
-task :default => :test
+namespace :all do
+  desc "Run specs on all spec apps"
+  task :spec do
+    for_each_directory_of('spec/**/Rakefile') do |directory|
+      system("cd #{directory} && bundle exec rake spec")
+    end
+  end
+
+  desc "Bundle all spec apps"
+  task :bundle do
+    for_each_directory_of('spec/**/Gemfile') do |directory|
+      system("cd #{directory} && bundle install")
+    end
+  end
+end
+
+def for_each_directory_of(path, &block)
+  Dir[path].sort.each do |rakefile|
+    directory = File.dirname(rakefile)
+    puts '', "\033[44m#{directory}\033[0m", ''
+    block.call(directory)
+  end
+end
