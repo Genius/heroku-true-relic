@@ -1,0 +1,2 @@
+module HerokuTrueRelic
+end
