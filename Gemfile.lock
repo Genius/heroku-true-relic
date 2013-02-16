@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     heroku-true-relic (0.0.1)
-      rails (~> 3.2.12)
 
 GEM
   remote: http://rubygems.org/
@@ -122,6 +121,7 @@ DEPENDENCIES
   jquery-rails
   pry
   pry-rails
+  rails (~> 3.2.12)
   rspec
   rspec-rails
   sqlite3
