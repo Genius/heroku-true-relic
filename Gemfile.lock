@@ -51,9 +51,6 @@ GEM
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
-    jquery-rails (2.2.1)
-      railties (>= 3.0, < 5.0)
-      thor (>= 0.14, < 2.0)
     json (1.7.7)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -140,7 +137,6 @@ PLATFORMS
 DEPENDENCIES
   capybara
   heroku-true-relic!
-  jquery-rails
   pry
   pry-rails
   rails (~> 3.2.12)
