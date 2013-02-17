@@ -37,23 +37,29 @@ task :default => 'all:spec'
 namespace :all do
   desc "Run specs on all spec apps"
   task :spec do
-    for_each_directory_of('spec/**/Rakefile') do |directory|
-      system("cd #{directory} && bundle exec rake spec")
+    for_each_directory_of('spec/**/Rakefile', "Failed to run specs") do |directory|
+      system("BUNDLE_GEMFILE='./Gemfile' bundle exec rake spec")
     end
   end
 
   desc "Bundle all spec apps"
   task :bundle do
-    for_each_directory_of('spec/**/Gemfile') do |directory|
-      system("cd #{directory} && bundle install")
+    for_each_directory_of('spec/**/Gemfile', 'Failed to bundle') do |directory|
+      system("BUNDLE_GEMFILE='./Gemfile' bundle install")
     end
   end
 end
 
-def for_each_directory_of(path, &block)
-  Dir[path].sort.each do |rakefile|
-    directory = File.dirname(rakefile)
+def for_each_directory_of(path, fail_msg, &block)
+  results = Dir[path].sort.map do |file|
+    directory = File.dirname(file)
     puts '', "\033[44m#{directory}\033[0m", ''
-    block.call(directory)
+    result = nil
+    Dir.chdir(directory) do
+      result = block.call(directory)
+    end
+    result
   end
+
+  fail fail_msg unless results.all?
 end

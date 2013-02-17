@@ -1,11 +1,6 @@
 require 'spec_helper'
 
 describe HerokuTrueRelic, :type => :feature do
-  describe Dummy::Application do
-    subject { Rails.application }
-    it { should be_a_kind_of Dummy::Application }
-  end
-
   describe 'queue time headers' do
     def to_millis(time)
       (time.to_f * 1_000).to_i
@@ -27,7 +22,7 @@ describe HerokuTrueRelic, :type => :feature do
 
     before do
       Timecop.freeze(request_receive_time)
-      Capybara::Server.new(Rails.application, port).boot
+      Capybara::Server.new(Capybara.app, port).boot
     end
 
     after do

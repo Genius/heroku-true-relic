@@ -1,0 +1,10 @@
+require 'rake'
+require 'spec/rake/spectask'
+
+desc 'Default: Run all specs for a specific rails version.'
+task :default => :spec
+
+desc "Run all specs for a specific rails version"
+Spec::Rake::SpecTask.new() do |t|
+  t.spec_files = FileList['**/*_spec.rb', '../shared/**/*_spec.rb']
+end
