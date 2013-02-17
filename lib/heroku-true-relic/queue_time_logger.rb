@@ -21,7 +21,7 @@ module HerokuTrueRelic
         # HTTP_X_REQUEST_START is expected by New Relic to have a t= leading
         # but currently doesn't, so it can just get to_i applied.
         request_start_microseconds = env["HTTP_X_REQUEST_START"].to_i * 1_000
-        queue_time_microseconds = microseconds - request_start_microseconds
+        queue_time_microseconds = [microseconds - request_start_microseconds, 0].max
 
         env["HTTP_X_QUEUE_TIME"] = "t=#{queue_time_microseconds}"
       end
