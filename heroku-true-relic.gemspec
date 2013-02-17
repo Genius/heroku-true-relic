@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = HerokuTrueRelic::VERSION
   s.authors     = ["Andrew Warner"]
   s.email       = ["andrew@rapgenius.com"]
-  s.homepage    = "rapgenius.com"
+  s.homepage    = "http://rubygems.org/gems/heroku-true-relic"
   s.summary     = "Get accurate heroku queue times in new relic"
   s.description = <<-DESCRIPTION
   New Relic (on Heroku) currently reports queue times as queuing at the router level. The goal
