@@ -12,7 +12,7 @@ describe HerokuTrueRelic, :type => :feature do
     let(:queue_time_ms) { to_millis(queue_time) }
     let(:request_receive_time) { request_start + queue_time }
 
-    let(:port) { 5671 }
+    let(:port) { Capybara.server_port || 5671 }
     let(:uri) { URI.parse "http://localhost:#{port}/env/#{env_var}" }
     let(:res) do
       req = Net::HTTP::Get.new(uri.request_uri)
