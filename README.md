@@ -34,6 +34,6 @@ use HerokuTrueRelic::QueueTimeLogger
 
 * Install [rvm](http://rvm.io)
 * Git clone this repository
-* cd into the directory (make sure the `.rmvrc` file is read properly
+* cd into the directory (make sure the `.rvmrc` file is read properly)
 * `rake all:bundle`
 * `rake all:spec`
