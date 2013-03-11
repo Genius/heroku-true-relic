@@ -1,3 +1,10 @@
+DEPRECATED
+==========
+
+Please use the latest version of the [New Relic Ruby Agent](https://github.com/newrelic/rpm)
+
+
+
 heroku-true-relic
 =================
 Show accurate heroku queue time numbers in new relic
